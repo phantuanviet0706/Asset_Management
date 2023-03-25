@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Project_PRN.Models;
 
 namespace Project_PRN.Pages
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<LoginModel> _logger;
 
         [BindProperty]
         public string Username { get; set; }
@@ -15,7 +15,7 @@ namespace Project_PRN.Pages
         public string Password { get; set; }
 
         public ProjectPrn221Context context { get; set; }
-        public IndexModel(ILogger<IndexModel> logger, ProjectPrn221Context _context)
+        public LoginModel(ILogger<LoginModel> logger, ProjectPrn221Context _context)
         {
             _logger = logger;
             context = _context;
@@ -25,12 +25,11 @@ namespace Project_PRN.Pages
 
         public void OnGet()
         {
-            
+
         }
 
         public IActionResult OnPost()
         {
-            return RedirectToPage("/Setting/Index");
             Users user = context.Users.FirstOrDefault(u => u.Username == Username);
             if (user == null)
             {
@@ -48,7 +47,7 @@ namespace Project_PRN.Pages
                 return Page();
             }
             HttpContext.Session.SetString("username", Username);
-            return RedirectToPage("Asset/Index");
+            return RedirectToPage("/Setting/Index");
         }
     }
 }
