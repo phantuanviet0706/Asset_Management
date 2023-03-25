@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HvoHt4RdSHf4UIBViTKtGZjI0Y8y2tX1UYSExpZn89YtsQOjOWAPXUp1WxAYMZ0oqkOFz+ADO29AG1IeqeTrpA==",
+  "dgSpecHash": "WAQEUUwld43IouEWUVEVikZz4V6u9btEGc6bPkENa7ooH0PbrNPgf5taOCDEE7gkQKoRvW8+GNchvbUqduIByw==",
   "success": true,
   "projectFilePath": "E:\\FPT\\Project_PRN\\Project_PRN\\Project_PRN.csproj",
   "expectedPackageFiles": [
@@ -66,11 +66,9 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.13\\microsoft.visualstudio.web.codegeneration.6.0.13.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\6.0.13\\microsoft.visualstudio.web.codegeneration.core.6.0.13.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\6.0.13\\microsoft.visualstudio.web.codegeneration.design.6.0.13.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.entityframeworkcore\\6.0.13\\microsoft.visualstudio.web.codegeneration.entityframeworkcore.6.0.13.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.templating\\6.0.13\\microsoft.visualstudio.web.codegeneration.templating.6.0.13.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\6.0.13\\microsoft.visualstudio.web.codegeneration.utils.6.0.13.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\6.0.13\\microsoft.visualstudio.web.codegenerators.mvc.6.0.13.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
