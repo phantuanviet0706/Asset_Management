@@ -3,8 +3,53 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<link rel="stylesheet" href="~/css/LogIn.css" />
+    <main>
+        <div class="row">
+            <div class="colm-logo">
+                <div class="asset-image">
+                    <img src="https://cdn.vietnambiz.vn/2019/9/5/d-15676531294462117799320.png" alt="Logo">
+                </div>
+                <h2>"Asset Management System" helps you managing in detail of Asset that have been purchased and invested.</h2>
+            </div>
+            <div class="colm-form">
+                <form method="post">
+                    <div class="form-container">
+                        <div class="col-2">
+                            <label asp-for="@Model.Username"></label>
+                        </div>
+                        <input type="text" name="username" placeholder="Email address or phone number" value="@ViewData["username"]">
+                        <div class="col-2">
+                            <label asp-for="@Model.Password"></label>
+                        </div>
+                        <input type="password" name="password" placeholder="Password">
+                        <div class="error-message">
+                            @ViewData["Msg"]
+                        </div>
+                        <button class="btn-login">Login</button>
+                        <a href="#">Forgotten password?</a>
+                        <button class="btn-new">Create new Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contents">
+            <ol>
+                <li>English (UK)</li>
+                <li><a href="#">മലയാളം</a></li>
+                <li><a href="#">தமிழ்</a></li>
+                <li><a href="#">తెలుగు</a></li>
+                <li><a href="#">বাংলা</a></li>
+                <li><a href="#">اردو</a></li>
+                <li><a href="#">हिन्दी</a></li>
+                <li><a href="#">ಕನ್ನಡ</a></li>
+                <li><a href="#">Español</a></li>
+                <li><a href="#">Português (Brasil)</a></li>
+                <li><a href="#">Français (France)</a></li>
+                <li><button>+</button></li>
+            </ol>
+            <small>Asset Management © 2023, Made by Phan Tuan Viet</small>
+        </div>
+    </footer>

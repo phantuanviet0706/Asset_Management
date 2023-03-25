@@ -1,4 +1,4 @@
-use master
+﻿use master
 go
 create database Project_PRN221
 go
@@ -97,3 +97,14 @@ Insert into [AssetStatuses](
 ('Useable', 0, 1, 0),
 ('In Use', 1, 1, 1),
 ('Available', 1, 1, 0)
+
+INSERT INTO [dbo].[Users](
+	[username]
+	,[password]
+	,[user_code]
+	,[email]
+	,[phone]
+	,[address]
+	,[user_id_number]
+) VALUES
+('admin', '123456789','Admin','admin@gmail.com','0123456789',N'Hà Nội','1234567890')
