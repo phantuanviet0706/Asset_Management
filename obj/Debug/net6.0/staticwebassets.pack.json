@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\Register.css"
     },
     {
+      "Id": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\Settings.css",
+      "PackagePath": "staticwebassets\\css\\Settings.css"
+    },
+    {
       "Id": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

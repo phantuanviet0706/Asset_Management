@@ -30,6 +30,7 @@ namespace Project_PRN.Pages
 
         public IActionResult OnPost()
         {
+            return RedirectToPage("/Setting/Index");
             Users user = context.Users.FirstOrDefault(u => u.Username == Username);
             if (user == null)
             {
