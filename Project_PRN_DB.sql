@@ -13,13 +13,13 @@ create table [Users](
 	user_code varchar(255),
 	email varchar(255),
 	phone varchar(63),
-	address varchar(255),
+	address nvarchar(255),
 	user_id_number varchar(63)
 )
 
 create table [AssetStatuses](
 	id int primary key identity(1,1),
-	[name] varchar(255),
+	[name] nvarchar(255),
 	available_to_use int,
 	active int,
 	currently_in_use int
@@ -27,30 +27,30 @@ create table [AssetStatuses](
 
 create table AssetVendors(
 	id int primary key identity(1,1),
-	[name] varchar(255),
-	contact_name varchar(255),
+	[name] nvarchar(255),
+	contact_name nvarchar(255),
 	phone varchar(63),
 	email varchar(255),
 	website varchar(255),
-	address varchar(255),
+	address nvarchar(255),
 	description text
 )
 
 create table AssetLocations(
 	id int primary key identity(1,1),
-	[name] varchar(255),
+	[name] nvarchar(255),
 	description text
 )
 
 create table [AssetTypes](
 	id int primary key identity(1,1),
-	[name] varchar(255),
+	[name] nvarchar(255),
 	code varchar(255)
 )
 
 create table [AssetTransactions](
 	id int primary key identity(1,1),
-	[name] varchar(255),
+	[name] nvarchar(255),
 
 	transaction_date date,
 	transaction_type varchar(255),
@@ -60,7 +60,7 @@ create table [AssetTransactions](
 
 create table Assets(
 	id int primary key identity(1,1),
-	[name] varchar(255),
+	[name] nvarchar(255),
 	code varchar(255),
 	[type_id] int,
 
@@ -73,7 +73,7 @@ create table Assets(
 	assign_date date,
 
 	vendor_id int,
-	description varchar(255),
+	description nvarchar(255),
 	transaction_id int,
 
 	create_by_user int,
