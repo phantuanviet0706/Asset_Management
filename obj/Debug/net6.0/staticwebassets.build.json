@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7KoJ+VAB+cNyet+GI1s2/0SASpxnT6mrVr3591oe/jM=",
+  "Hash": "lo1WQedlEz8dA0W4oCuzP01VhM6tKqbjyq9jm3ca3LY=",
   "Source": "Project_PRN",
   "BasePath": "_content/Project_PRN",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\LogIn.css"
+    },
+    {
+      "Identity": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\Register.css",
+      "SourceId": "Project_PRN",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\",
+      "BasePath": "_content/Project_PRN",
+      "RelativePath": "css/Register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Register.css"
     },
     {
       "Identity": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\site.css",

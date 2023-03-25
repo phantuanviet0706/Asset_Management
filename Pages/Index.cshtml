@@ -3,7 +3,21 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<link rel="stylesheet" href="~/css/LogIn.css" />
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project_PRN</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Project_PRN.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/LogIn.css" />
+</head>
+<body>
+
     <main>
         <div class="row">
             <div class="colm-logo">
@@ -13,6 +27,9 @@
                 <h2>"Asset Management System" helps you managing in detail of Asset that have been purchased and invested.</h2>
             </div>
             <div class="colm-form">
+                <div class="success-message">
+                    @ViewData["Success"]
+                </div>
                 <form method="post">
                     <div class="form-container">
                         <div class="col-2">
@@ -27,8 +44,8 @@
                             @ViewData["Msg"]
                         </div>
                         <button class="btn-login">Login</button>
-                        <a href="#">Forgotten password?</a>
-                        <button class="btn-new">Create new Account</button>
+                        <a href="/Forgot">Forgotten password?</a>
+                        <a href="/Register" class="button-3">Create new Account</a>
                     </div>
                 </form>
             </div>
@@ -53,3 +70,9 @@
             <small>Asset Management © 2023, Made by Phan Tuan Viet</small>
         </div>
     </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

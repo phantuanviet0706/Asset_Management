@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\LogIn.css"
     },
     {
+      "Id": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\Register.css",
+      "PackagePath": "staticwebassets\\css\\Register.css"
+    },
+    {
       "Id": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

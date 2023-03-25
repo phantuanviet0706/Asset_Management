@@ -36,7 +36,7 @@ footer {
 
 .colm-logo {
     flex: 0 0 50%;
-    text-align: left;
+    text-align: center;
 }
 
 .colm-form {
@@ -49,10 +49,11 @@ footer {
 }
 
 .colm-logo h2 {
-    font: 26px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 300;
     padding: 0 30px;
     line-height: 32px;
+    text-align: center;
 }
 
 .colm-form .form-container {
@@ -100,7 +101,7 @@ footer {
         color: #1877f2;
         font-size: 14px;
         text-decoration: none;
-        padding: 10px 0 20px;
+        margin: 10px 0 20px;
         border-bottom: 1px solid #dadde1;
     }
 
@@ -186,4 +187,55 @@ footer small {
 
 .asset-image {
     text-align: center;
+}
+
+.button-3 {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+}
+
+.button-3:hover {
+    background-color: #2c974b;
+}
+
+.button-3:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+}
+
+.button-3:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+}
+
+.button-3:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }

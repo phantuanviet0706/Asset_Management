@@ -1,0 +1,61 @@
+﻿@page
+@model Project_PRN.Pages.RegisterModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project_PRN</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Project_PRN.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Register.css" />
+</head>
+<body>
+
+    <div id="login-box">
+        <div class="left">
+            <form method="post">
+                <h1>Sign up</h1>
+                <div class="col-2" style="display: none;">
+                    <label asp-for="@Model.Username"></label>
+                </div>
+                <input type="text" name="username" placeholder="Username" />
+                <div class="col-2" style="display: none;">
+                    <label asp-for="@Model.Email"></label>
+                </div>
+                <input type="text" name="email" placeholder="E-mail" />
+                <div class="col-2" style="display: none;">
+                    <label asp-for="@Model.Password"></label>
+                </div>
+                <input type="password" name="password" placeholder="Password" />
+                <div class="col-2" style="display: none;">
+                    <label asp-for="@Model.ConfirmPassword"></label>
+                </div>
+                <input type="password" name="confirmPassword" placeholder="Retype password" />
+
+                
+                <input type="submit" name="signup_submit" value="Sign me up" />
+            </form>
+        </div>
+
+        <div class="right">
+            <span class="loginwith">Sign in with<br />social network</span>
+
+            <button class="social-signin twitter">Log in with Twitter</button>
+            <button class="social-signin google">Log in with Google+</button>
+        </div>
+        <div class="or">OR</div>
+    </div>
+
+    <div class="error-message">
+        @ViewData["Msg"]
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
