@@ -1,0 +1,37 @@
+﻿@page
+@model Project_PRN.Pages.AssetStatus.DetailsModel
+
+<div>
+    <h4>AssetStatus</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.AvailableToUse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.AvailableToUse)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.Active)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.Active)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.CurrentlyInUse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.CurrentlyInUse)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AssetStatus?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

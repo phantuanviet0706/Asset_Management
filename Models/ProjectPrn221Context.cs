@@ -15,19 +15,19 @@ public partial class ProjectPrn221Context : DbContext
     {
     }
 
-    public virtual DbSet<Asset> Assets { get; set; }
+    public virtual DbSet<AssetModel> Assets { get; set; }
 
-    public virtual DbSet<AssetLocation> AssetLocations { get; set; }
+    public virtual DbSet<Locations> AssetLocations { get; set; }
 
-    public virtual DbSet<AssetStatus> AssetStatuses { get; set; }
+    public virtual DbSet<Statuses> AssetStatuses { get; set; }
 
     public virtual DbSet<AssetTransaction> AssetTransactions { get; set; }
 
-    public virtual DbSet<AssetType> AssetTypes { get; set; }
+    public virtual DbSet<Types> AssetTypes { get; set; }
 
-    public virtual DbSet<AssetVendor> AssetVendors { get; set; }
+    public virtual DbSet<Vendors> AssetVendors { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<Users> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -35,7 +35,7 @@ public partial class ProjectPrn221Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Asset>(entity =>
+        modelBuilder.Entity<AssetModel>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Assets__3213E83F2DF82C78");
 
@@ -98,7 +98,7 @@ public partial class ProjectPrn221Context : DbContext
                 .HasConstraintName("FK__Assets__vendor_i__33D4B598");
         });
 
-        modelBuilder.Entity<AssetLocation>(entity =>
+        modelBuilder.Entity<Locations>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__AssetLoc__3213E83F0126BCB0");
 
@@ -112,7 +112,7 @@ public partial class ProjectPrn221Context : DbContext
                 .HasColumnName("name");
         });
 
-        modelBuilder.Entity<AssetStatus>(entity =>
+        modelBuilder.Entity<Statuses>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__AssetSta__3213E83FF2865E27");
 
@@ -146,7 +146,7 @@ public partial class ProjectPrn221Context : DbContext
                 .HasColumnName("transaction_type");
         });
 
-        modelBuilder.Entity<AssetType>(entity =>
+        modelBuilder.Entity<Types>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__AssetTyp__3213E83F79123B7B");
 
@@ -161,7 +161,7 @@ public partial class ProjectPrn221Context : DbContext
                 .HasColumnName("name");
         });
 
-        modelBuilder.Entity<AssetVendor>(entity =>
+        modelBuilder.Entity<Vendors>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__AssetVen__3213E83F2C8AD0E2");
 
@@ -195,7 +195,7 @@ public partial class ProjectPrn221Context : DbContext
                 .HasColumnName("website");
         });
 
-        modelBuilder.Entity<User>(entity =>
+        modelBuilder.Entity<Users>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F00A2AE00");
 

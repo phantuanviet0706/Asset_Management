@@ -1,0 +1,81 @@
+﻿@page
+@model Project_PRN.Pages.Asset.CreateModel
+
+<h4>Asset</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Asset.Name" class="control-label"></label>
+                <input asp-for="Asset.Name" class="form-control" />
+                <span asp-validation-for="Asset.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Code" class="control-label"></label>
+                <input asp-for="Asset.Code" class="form-control" />
+                <span asp-validation-for="Asset.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.TypeId" class="control-label"></label>
+                <select asp-for="Asset.TypeId" class ="form-control" asp-items="ViewBag.TypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.LocationId" class="control-label"></label>
+                <select asp-for="Asset.LocationId" class ="form-control" asp-items="ViewBag.LocationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.StatusId" class="control-label"></label>
+                <select asp-for="Asset.StatusId" class ="form-control" asp-items="ViewBag.StatusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.AssigneeId" class="control-label"></label>
+                <select asp-for="Asset.AssigneeId" class ="form-control" asp-items="ViewBag.AssigneeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.AcquisitionDate" class="control-label"></label>
+                <input asp-for="Asset.AcquisitionDate" class="form-control" />
+                <span asp-validation-for="Asset.AcquisitionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.DisposalDate" class="control-label"></label>
+                <input asp-for="Asset.DisposalDate" class="form-control" />
+                <span asp-validation-for="Asset.DisposalDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.AssignDate" class="control-label"></label>
+                <input asp-for="Asset.AssignDate" class="form-control" />
+                <span asp-validation-for="Asset.AssignDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.VendorId" class="control-label"></label>
+                <select asp-for="Asset.VendorId" class ="form-control" asp-items="ViewBag.VendorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Description" class="control-label"></label>
+                <input asp-for="Asset.Description" class="form-control" />
+                <span asp-validation-for="Asset.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.TransactionId" class="control-label"></label>
+                <select asp-for="Asset.TransactionId" class ="form-control" asp-items="ViewBag.TransactionId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.CreateByUser" class="control-label"></label>
+                <select asp-for="Asset.CreateByUser" class ="form-control" asp-items="ViewBag.CreateByUser"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

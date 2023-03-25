@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Project_PRN.Models;
 
-public partial class AssetStatus
+public partial class Statuses
 {
     public int Id { get; set; }
 
@@ -15,5 +15,5 @@ public partial class AssetStatus
 
     public int? CurrentlyInUse { get; set; }
 
-    public virtual ICollection<Asset> Assets { get; } = new List<Asset>();
+    public virtual ICollection<AssetModel> Assets { get; } = new List<AssetModel>();
 }

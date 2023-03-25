@@ -1,0 +1,59 @@
+﻿@page
+@model Project_PRN.Pages.AssetVendor.EditModel
+
+<h4>AssetVendor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AssetVendor.Id" />
+            <div class="form-group">
+                <label asp-for="AssetVendor.Name" class="control-label"></label>
+                <input asp-for="AssetVendor.Name" class="form-control" />
+                <span asp-validation-for="AssetVendor.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetVendor.ContactName" class="control-label"></label>
+                <input asp-for="AssetVendor.ContactName" class="form-control" />
+                <span asp-validation-for="AssetVendor.ContactName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetVendor.Phone" class="control-label"></label>
+                <input asp-for="AssetVendor.Phone" class="form-control" />
+                <span asp-validation-for="AssetVendor.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetVendor.Email" class="control-label"></label>
+                <input asp-for="AssetVendor.Email" class="form-control" />
+                <span asp-validation-for="AssetVendor.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetVendor.Website" class="control-label"></label>
+                <input asp-for="AssetVendor.Website" class="form-control" />
+                <span asp-validation-for="AssetVendor.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetVendor.Address" class="control-label"></label>
+                <input asp-for="AssetVendor.Address" class="form-control" />
+                <span asp-validation-for="AssetVendor.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetVendor.Description" class="control-label"></label>
+                <input asp-for="AssetVendor.Description" class="form-control" />
+                <span asp-validation-for="AssetVendor.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

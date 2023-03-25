@@ -1,0 +1,55 @@
+﻿@page
+@model Project_PRN.Pages.AssetVendor.DetailsModel
+
+<div>
+    <h4>AssetVendor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetVendor.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetVendor.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetVendor.ContactName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetVendor.ContactName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetVendor.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetVendor.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetVendor.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetVendor.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetVendor.Website)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetVendor.Website)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetVendor.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetVendor.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetVendor.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetVendor.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AssetVendor?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

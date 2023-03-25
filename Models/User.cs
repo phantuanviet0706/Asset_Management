@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Project_PRN.Models;
 
-public partial class User
+public partial class Users
 {
     public int Id { get; set; }
 
@@ -21,7 +21,7 @@ public partial class User
 
     public string? UserIdNumber { get; set; }
 
-    public virtual ICollection<Asset> AssetAssignees { get; } = new List<Asset>();
+    public virtual ICollection<AssetModel> AssetAssignees { get; } = new List<AssetModel>();
 
-    public virtual ICollection<Asset> AssetCreateByUserNavigations { get; } = new List<Asset>();
+    public virtual ICollection<AssetModel> AssetCreateByUserNavigations { get; } = new List<AssetModel>();
 }

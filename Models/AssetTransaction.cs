@@ -17,5 +17,5 @@ public partial class AssetTransaction
 
     public int? CreatedAt { get; set; }
 
-    public virtual ICollection<Asset> Assets { get; } = new List<Asset>();
+    public virtual ICollection<AssetModel> Assets { get; } = new List<AssetModel>();
 }

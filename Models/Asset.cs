@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Project_PRN.Models;
 
-public partial class Asset
+public partial class AssetModel
 {
     public int Id { get; set; }
 
@@ -33,17 +33,17 @@ public partial class Asset
 
     public int? CreateByUser { get; set; }
 
-    public virtual User? Assignee { get; set; }
+    public virtual Users? Assignee { get; set; }
 
-    public virtual User? CreateByUserNavigation { get; set; }
+    public virtual Users? CreateByUserNavigation { get; set; }
 
-    public virtual AssetLocation? Location { get; set; }
+    public virtual Locations? Location { get; set; }
 
-    public virtual AssetStatus? Status { get; set; }
+    public virtual Statuses? Status { get; set; }
 
     public virtual AssetTransaction? Transaction { get; set; }
 
-    public virtual AssetType? Type { get; set; }
+    public virtual Types? Type { get; set; }
 
-    public virtual AssetVendor? Vendor { get; set; }
+    public virtual Vendors? Vendor { get; set; }
 }

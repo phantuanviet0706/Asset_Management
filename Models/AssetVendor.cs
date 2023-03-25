@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Project_PRN.Models;
 
-public partial class AssetVendor
+public partial class Vendors
 {
     public int Id { get; set; }
 
@@ -21,5 +21,5 @@ public partial class AssetVendor
 
     public string? Description { get; set; }
 
-    public virtual ICollection<Asset> Assets { get; } = new List<Asset>();
+    public virtual ICollection<AssetModel> Assets { get; } = new List<AssetModel>();
 }

@@ -1,0 +1,40 @@
+﻿@page
+@model Project_PRN.Pages.AssetStatus.DeleteModel
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AssetStatus</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.AvailableToUse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.AvailableToUse)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.Active)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.Active)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssetStatus.CurrentlyInUse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssetStatus.CurrentlyInUse)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="AssetStatus.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -285,3 +285,5 @@ E:\FPT\Project_PRN\Project_PRN\obj\Debug\net6.0\refint\Project_PRN.dll
 E:\FPT\Project_PRN\Project_PRN\obj\Debug\net6.0\Project_PRN.pdb
 E:\FPT\Project_PRN\Project_PRN\obj\Debug\net6.0\Project_PRN.genruntimeconfig.cache
 E:\FPT\Project_PRN\Project_PRN\obj\Debug\net6.0\ref\Project_PRN.dll
+E:\FPT\Project_PRN\Project_PRN\bin\Debug\net6.0\dotnet-aspnet-codegenerator-design.dll
+E:\FPT\Project_PRN\Project_PRN\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
