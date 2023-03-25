@@ -1,0 +1,48 @@
+﻿@page
+@model Project_PRN.Pages.AssetTransaction.CreateModel
+
+<h4>AssetTransaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AssetTransaction.Name" class="control-label"></label>
+                <input asp-for="AssetTransaction.Name" class="form-control" />
+                <span asp-validation-for="AssetTransaction.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetTransaction.TransactionDate" class="control-label"></label>
+                <input asp-for="AssetTransaction.TransactionDate" class="form-control" />
+                <span asp-validation-for="AssetTransaction.TransactionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetTransaction.TransactionType" class="control-label"></label>
+                <input asp-for="AssetTransaction.TransactionType" class="form-control" />
+                <span asp-validation-for="AssetTransaction.TransactionType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetTransaction.TransactionCost" class="control-label"></label>
+                <input asp-for="AssetTransaction.TransactionCost" class="form-control" />
+                <span asp-validation-for="AssetTransaction.TransactionCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetTransaction.CreatedAt" class="control-label"></label>
+                <input asp-for="AssetTransaction.CreatedAt" class="form-control" />
+                <span asp-validation-for="AssetTransaction.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

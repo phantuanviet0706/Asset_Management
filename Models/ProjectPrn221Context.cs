@@ -21,7 +21,7 @@ public partial class ProjectPrn221Context : DbContext
 
     public virtual DbSet<Statuses> AssetStatuses { get; set; }
 
-    public virtual DbSet<AssetTransaction> AssetTransactions { get; set; }
+    public virtual DbSet<Transactions> AssetTransactions { get; set; }
 
     public virtual DbSet<Types> AssetTypes { get; set; }
 
@@ -126,7 +126,7 @@ public partial class ProjectPrn221Context : DbContext
                 .HasColumnName("name");
         });
 
-        modelBuilder.Entity<AssetTransaction>(entity =>
+        modelBuilder.Entity<Transactions>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__AssetTra__3213E83FD9DB5727");
 

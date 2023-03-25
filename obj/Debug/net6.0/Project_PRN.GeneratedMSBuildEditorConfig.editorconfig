@@ -56,6 +56,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRTdGF0dXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/FPT/Project_PRN/Project_PRN/Pages/AssetTransaction/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUcmFuc2FjdGlvblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT/Project_PRN/Project_PRN/Pages/AssetTransaction/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUcmFuc2FjdGlvblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT/Project_PRN/Project_PRN/Pages/AssetTransaction/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUcmFuc2FjdGlvblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT/Project_PRN/Project_PRN/Pages/AssetTransaction/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUcmFuc2FjdGlvblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT/Project_PRN/Project_PRN/Pages/AssetTransaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUcmFuc2FjdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/FPT/Project_PRN/Project_PRN/Pages/AssetType/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUeXBlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

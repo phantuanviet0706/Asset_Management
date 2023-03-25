@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Project_PRN.Models;
 
-public partial class AssetTransaction
+public partial class Transactions
 {
     public int Id { get; set; }
 

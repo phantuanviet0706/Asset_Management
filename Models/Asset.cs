@@ -41,7 +41,7 @@ public partial class AssetModel
 
     public virtual Statuses? Status { get; set; }
 
-    public virtual AssetTransaction? Transaction { get; set; }
+    public virtual Transactions? Transaction { get; set; }
 
     public virtual Types? Type { get; set; }
 
