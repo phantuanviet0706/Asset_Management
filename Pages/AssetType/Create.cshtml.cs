@@ -38,7 +38,7 @@ namespace Project_PRN.Pages.AssetTypes
             _context.AssetTypes.Add(AssetType);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Setting/Types");
         }
     }
 }

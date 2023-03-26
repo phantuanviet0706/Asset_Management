@@ -32,10 +32,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRMb2NhdGlvblxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/FPT/Project_PRN/Project_PRN/Pages/AssetLocation/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRMb2NhdGlvblxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/FPT/Project_PRN/Project_PRN/Pages/AssetStatus/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRTdGF0dXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,10 +46,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/AssetStatus/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRTdGF0dXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/FPT/Project_PRN/Project_PRN/Pages/AssetStatus/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRTdGF0dXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/AssetTransaction/Create.cshtml]
@@ -92,10 +84,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUeXBlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/FPT/Project_PRN/Project_PRN/Pages/AssetType/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRUeXBlXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/FPT/Project_PRN/Project_PRN/Pages/AssetVendor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRWZW5kb3JcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -110,10 +98,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/AssetVendor/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRWZW5kb3JcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/FPT/Project_PRN/Project_PRN/Pages/AssetVendor/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRWZW5kb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/Asset/Create.cshtml]

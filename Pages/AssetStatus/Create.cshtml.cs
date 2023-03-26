@@ -38,7 +38,7 @@ namespace Project_PRN.Pages.AssetStatus
             _context.AssetStatuses.Add(AssetStatus);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Setting/Statuses");
         }
     }
 }

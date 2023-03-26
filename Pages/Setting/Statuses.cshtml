@@ -9,7 +9,7 @@
 <header class="sticky-header">
     <div id="navbar">
         <a href="/Asset">Home</a>
-        <a href="">News</a>
+        <a href="/AssetTransaction">Transactions</a>
         <a href="/Setting">Settings</a>
         <div id="user-info" style="float: right;">
             <a asp-page="/User/Details" asp-route-id="@profile.Id">
@@ -35,6 +35,7 @@
 } else
 {
     <div class="right-tab">
+        <a href="/AssetStatus/Create" class="create-new-btn">Create new Status</a>
         <table class="table">
             <thead>
                 <tr>

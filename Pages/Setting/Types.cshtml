@@ -9,7 +9,7 @@
 <header class="sticky-header">
     <div id="navbar">
         <a href="/Asset">Home</a>
-        <a href="">News</a>
+        <a href="/AssetTransaction">Transactions</a>
         <a href="/Setting">Settings</a>
         <div id="user-info" style="float: right;">
             <a asp-page="/User/Details" asp-route-id="@profile.Id">
@@ -31,12 +31,13 @@
 @if (Model.types.Count == 0)
 {
     <div class="empty-state right-tab">
-        <div>No location found. Please <a href="/AssetLocation/Create">Create</a> a new one</div>
+        <div>No type found. Please <a href="/AssetType/Create">Create</a> a new one</div>
     </div>
 
 } else
 {
     <div class="right-tab">
+        <a href="/AssetType/Create" class="create-new-btn">Create new Type</a>
         <table class="table">
             <thead>
                 <tr>
@@ -89,55 +90,3 @@
         </table>
     </div>
 }
-<div class="right-tab">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.types[0].Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.types[0].Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.types[0].Code)
-                </th>
-                <th>
-                    Edit
-                </th>
-                <th>
-                    Detail
-                </th>
-                <th>
-                    Delete
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.types)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Code)
-                    </td>
-                    <td>
-                        <a asp-page="./AssetType/Edit" asp-route-id="@item.Id">Edit</a> |
-                    </td>
-                    <td>
-                        <a asp-page="./AssetType/Details" asp-route-id="@item.Id">Details</a> |
-                    </td>
-                    <td>
-                        <a asp-page="./AssetType/Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>

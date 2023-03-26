@@ -124,3 +124,20 @@ body {
     font-size: 20px !important;
     margin-top: 30px;
 }
+
+.create-new-btn {
+    text-decoration: none;
+    color: #fff;
+    background-color: #E66423;
+    font-size: 18px;
+    padding: 5px 10px;
+    float: right;
+    border-radius: 5px;
+    margin: 10px 0px 30px;
+    font-weight: 200;
+}
+
+.create-new-btn:hover {
+    color: #000;
+    background-color: #E66500;
+}

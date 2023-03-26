@@ -38,7 +38,7 @@ namespace Project_PRN.Pages.AssetVendor
             _context.AssetVendors.Add(AssetVendor);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Setting/Vendors");
         }
     }
 }
