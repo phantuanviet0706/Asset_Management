@@ -17,12 +17,27 @@ namespace Project_PRN.Pages.AssetStatus
         {
             _context = context;
         }
+        public Users userProfile { get; set; } = default!;
+        public string Msg;
 
         [BindProperty]
       public Statuses AssetStatus { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                //return RedirectToPage("/Login");
+                username = "admin";
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
             if (id == null || _context.AssetStatuses == null)
             {
                 return NotFound();
@@ -43,6 +58,19 @@ namespace Project_PRN.Pages.AssetStatus
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                //return RedirectToPage("/Login");
+                username = "admin";
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
             if (id == null || _context.AssetStatuses == null)
             {
                 return NotFound();
@@ -56,7 +84,7 @@ namespace Project_PRN.Pages.AssetStatus
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Setting/Statuses");
         }
     }
 }

@@ -20,11 +20,25 @@ namespace Project_PRN.Pages.AssetLocation
             _context = context;
         }
 
+        public Users userProfile { get; set; } = default!;
+        public string Msg;
         [BindProperty]
         public Locations AssetLocation { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                //return RedirectToPage("/Login");
+                username = "admin";
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
             if (id == null || _context.AssetLocations == null)
             {
                 return NotFound();
@@ -43,8 +57,28 @@ namespace Project_PRN.Pages.AssetLocation
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                //return RedirectToPage("/Login");
+                username = "admin";
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
             if (!ModelState.IsValid)
             {
+                return Page();
+            }
+
+
+            if (AssetLocation.Name == null)
+            {
+                Msg = "Location Name can't be empty";
+                ViewData["msg"] = Msg;
                 return Page();
             }
 
@@ -66,7 +100,7 @@ namespace Project_PRN.Pages.AssetLocation
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Setting/Index");
         }
 
         private bool AssetLocationExists(int id)

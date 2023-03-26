@@ -31,3 +31,11 @@
     text-align: center;
     margin: 10px 0px;
 }
+
+.user-action {
+    text-align: center;
+}
+
+.checkbox-input {
+    width: 50%;
+}

@@ -19,11 +19,34 @@ namespace Project_PRN.Pages.AssetStatus
             _context = context;
         }
 
+        public Users userProfile { get; set; } = default!;
+
+        [BindProperty]
+        public bool availableToUse { get; set; }
+        [BindProperty]
+        public bool active { get; set; }
+        [BindProperty]
+        public bool currentlyInUse { get; set; }
+
+
         [BindProperty]
         public Statuses AssetStatus { get; set; } = default!;
+        public string Msg;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                //return RedirectToPage("/Login");
+                username = "admin";
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
             if (id == null || _context.AssetStatuses == null)
             {
                 return NotFound();
@@ -42,10 +65,26 @@ namespace Project_PRN.Pages.AssetStatus
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                //return RedirectToPage("/Login");
+                username = "admin";
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            AssetStatus.Active = active ? 1 : 0;
+            AssetStatus.AvailableToUse = availableToUse ? 1 : 0;
+            AssetStatus.CurrentlyInUse = currentlyInUse ? 1 : 0;
 
             _context.Attach(AssetStatus).State = EntityState.Modified;
 
@@ -65,7 +104,7 @@ namespace Project_PRN.Pages.AssetStatus
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Setting/Statuses");
         }
 
         private bool AssetStatusExists(int id)

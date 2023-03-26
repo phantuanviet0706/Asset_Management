@@ -74,13 +74,13 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            <a asp-page="./Location/Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-page="/AssetLocation/Edit" asp-route-id="@item.Id">Edit</a>
                         </td>
                         <td>
-                            <a asp-page="./Location/Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-page="/AssetLocation/Details" asp-route-id="@item.Id">Details</a>
                         </td>
                         <td>
-                            <a asp-page="./Location/Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-page="/AssetLocation/Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>
                 }
