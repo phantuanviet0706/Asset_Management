@@ -1,0 +1,143 @@
+﻿@page
+@model Project_PRN.Pages.Setting.TypesModel
+@{
+    var profile = Model.userProfile;
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/Settings.css" />
+
+<header class="sticky-header">
+    <div id="navbar">
+        <a href="/Asset">Home</a>
+        <a href="">News</a>
+        <a href="/Setting">Settings</a>
+        <div id="user-info" style="float: right;">
+            <a asp-page="/User/Details" asp-route-id="@profile.Id">
+                @Html.DisplayFor(model => model.userProfile.Email)
+            </a>
+        </div>
+    </div>
+</header>
+<div class="left-tab" style="height: 100%;">
+    <div class="tab" style="height: 100%;">
+        <button class="tablinks" onclick="location.href='/Setting/Index'" id="defaultOpen" href="/Login">Locations</button>
+        <button class="tablinks" onclick="location.href='/Setting/Statuses'">Statuses</button>
+        <button class="tablinks" onclick="location.href='/Setting/Vendors'">Vendors</button>
+        <button class="tablinks" onclick="location.href='/Setting/Types'">Types</button>
+    </div>
+</div>
+
+
+@if (Model.types.Count == 0)
+{
+    <div class="empty-state right-tab">
+        <div>No location found. Please <a href="/AssetLocation/Create">Create</a> a new one</div>
+    </div>
+
+} else
+{
+    <div class="right-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.types[0].Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.types[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.types[0].Code)
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Detail
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.types)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            <a asp-page="./AssetType/Edit" asp-route-id="@item.Id">Edit</a> |
+                        </td>
+                        <td>
+                            <a asp-page="./AssetType/Details" asp-route-id="@item.Id">Details</a> |
+                        </td>
+                        <td>
+                            <a asp-page="./AssetType/Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<div class="right-tab">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.types[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.types[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.types[0].Code)
+                </th>
+                <th>
+                    Edit
+                </th>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Delete
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.types)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        <a asp-page="./AssetType/Edit" asp-route-id="@item.Id">Edit</a> |
+                    </td>
+                    <td>
+                        <a asp-page="./AssetType/Details" asp-route-id="@item.Id">Details</a> |
+                    </td>
+                    <td>
+                        <a asp-page="./AssetType/Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

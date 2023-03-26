@@ -20,21 +20,71 @@
     </header>
     <div class="left-tab" style="height: 100%;">
         <div class="tab" style="height: 100%;">
-            <form action="/Setting/Index">
-                <button class="tablinks" id="defaultOpen" href="/Login">Locations</button>
-            </form>
-            <form action="/Setting/Statuses">
-                <button class="tablinks">Statuses</button>
-            </form>
-            <form action="/Setting/Vendors">
-                <button class="tablinks">Vendors</button>
-            </form>
-            <form action="/Setting/Types">
-                <button class="tablinks">Types</button>
-            </form>
-        </div>
-
-        <div class="right-tab" style="height=100%">
-
+            <button class="tablinks" onclick="location.href='/Setting/Index'" id="defaultOpen" href="/Login">Locations</button>
+            <button class="tablinks" onclick="location.href='/Setting/Statuses'">Statuses</button>
+            <button class="tablinks" onclick="location.href='/Setting/Vendors'">Vendors</button>
+            <button class="tablinks" onclick="location.href='/Setting/Types'">Types</button>
         </div>
     </div>
+
+@if (Model.locations.Count == 0)
+{
+    <div class="empty-state right-tab">
+        <div>No location found. Please <a href="/AssetLocation/Create">Create</a> a new one</div>
+    </div>
+} else
+{
+    <div class="right-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.locations[0].Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.locations[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.locations[0].Description)
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Detail
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.locations)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <a asp-page="./Location/Edit" asp-route-id="@item.Id">Edit</a> |
+                        </td>
+                        <td>
+                            <a asp-page="./Location/Details" asp-route-id="@item.Id">Details</a> |
+                        </td>
+                        <td>
+                            <a asp-page="./Location/Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+

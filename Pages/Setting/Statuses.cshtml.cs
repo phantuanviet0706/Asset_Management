@@ -2,21 +2,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Project_PRN.Models;
-using System.Collections;
 
 namespace Project_PRN.Pages.Setting
 {
-    public class IndexModel : PageModel
+    public class StatusesModel : PageModel
     {
         private readonly Project_PRN.Models.ProjectPrn221Context _context;
 
-        public IndexModel(Project_PRN.Models.ProjectPrn221Context context)
+        public StatusesModel(Project_PRN.Models.ProjectPrn221Context context)
         {
             _context = context;
         }
 
         public Users userProfile { get; set; } = default!;
-        public IList<Locations> locations { get; set; } = default!;
+        public IList<Statuses> status { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -31,10 +30,10 @@ namespace Project_PRN.Pages.Setting
                 return RedirectToPage("/Login");
             }
             userProfile = user;
-            
-            if (_context.AssetLocations != null)
+
+            if (_context.AssetStatuses != null)
             {
-                locations = await _context.AssetLocations.ToListAsync();
+                status = await _context.AssetStatuses.ToListAsync();
             }
             return Page();
         }
