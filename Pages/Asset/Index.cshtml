@@ -44,7 +44,10 @@
     }
     else
     {
-        <a href="/Asset/Create" class="create-new-btn">Create new Asset</a>
+        if (profile.UserCode.ToLower().Trim() == "admin")
+        {
+            <a href="/Asset/Create" class="create-new-btn">Create new Asset</a>
+        }
 
         <div class="table-content">
             <table class="table">
