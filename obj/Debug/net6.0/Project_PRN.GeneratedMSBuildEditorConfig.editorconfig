@@ -100,6 +100,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRWZW5kb3JcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/FPT/Project_PRN/Project_PRN/Pages/Asset/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRcQXNzaWduLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/FPT/Project_PRN/Project_PRN/Pages/Asset/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -112,12 +116,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/FPT/Project_PRN/Project_PRN/Pages/Asset/Dispose.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRcRGlzcG9zZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/FPT/Project_PRN/Project_PRN/Pages/Asset/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/Asset/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT/Project_PRN/Project_PRN/Pages/Asset/Return.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRcUmV0dXJuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/Error.cshtml]
@@ -152,6 +164,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ1xUeXBlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/FPT/Project_PRN/Project_PRN/Pages/Setting/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ1xVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/FPT/Project_PRN/Project_PRN/Pages/Setting/Vendors.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ1xWZW5kb3JzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -178,10 +194,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/FPT/Project_PRN/Project_PRN/Pages/User/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/FPT/Project_PRN/Project_PRN/Pages/_ViewImports.cshtml]

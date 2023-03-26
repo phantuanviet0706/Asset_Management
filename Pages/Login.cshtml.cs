@@ -47,7 +47,8 @@ namespace Project_PRN.Pages
                 return Page();
             }
             HttpContext.Session.SetString("username", Username);
-            return RedirectToPage("/Setting/Index");
+            return RedirectToPage("/Asset/Index");
+            
         }
     }
 }

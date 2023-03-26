@@ -1,5 +1,5 @@
 ﻿@page
-@model Project_PRN.Pages.Asset.DetailsModel
+@model Project_PRN.Pages.Asset.AssignModel
 @{
     var profile = Model.userProfile;
     Layout = "_Layout";
@@ -21,7 +21,9 @@
 </header>
 
 <div>
-    <h3 class="create-object-text">Asset Detail</h3>
+    <h3 class="create-object-text">Assign User to this Asset</h3>
+    <div class="text-danger error-message-text">@ViewData["msg"]</div>
+
     <hr />
     <dl class="row create-form-asset">
         <dt class="col-sm-3">
@@ -97,16 +99,17 @@
             @(Model.Asset.Vendor == null ? "---" : Model.Asset.Vendor.Name)
         </dd>
     </dl>
-</div>
-<div class="user-action">
-    @{
-        if (Model.Asset.StatusId != 1)
-        {
-            <a asp-page="./Edit" asp-route-id="@Model.Asset?.Id">Edit</a><span>|</span>
-            <a asp-page="./Index">Back to List</a>
-        } else
-        {
-            <a asp-page="./Index">Back to List</a>
-        }
-    }
+
+    <form method="post" class="user-action">
+        <div class="row assign-employee">
+            <div class="form-group col-md-12">
+                <label asp-for="@Model.AssigneeId" class="control-label"></label>
+                <select asp-for="@Model.AssigneeId" name="assigneeId" class="form-control" asp-items="ViewBag.UserAssign"></select>
+                <span asp-validation-for="@Model.AssigneeId" class="text-danger"></span>
+            </div>
+        </div>
+        <input type="hidden" asp-for="Asset.Id" />
+        <input type="submit" value="Assign" class="btn btn-primary" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
 </div>

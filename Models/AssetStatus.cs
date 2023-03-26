@@ -15,5 +15,5 @@ public partial class Statuses
 
     public int? CurrentlyInUse { get; set; }
 
-    public virtual ICollection<AssetModel> Assets { get; } = new List<AssetModel>();
+    public virtual ICollection<Assets> Assets { get; } = new List<Assets>();
 }

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Project_PRN.bundle.scp.css"
     },
     {
+      "Id": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\Asset.css",
+      "PackagePath": "staticwebassets\\css\\Asset.css"
+    },
+    {
       "Id": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\CRUD.css",
       "PackagePath": "staticwebassets\\css\\CRUD.css"
     },

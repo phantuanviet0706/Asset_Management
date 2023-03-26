@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Project_PRN.Models;
 
 namespace Project_PRN.Pages.Asset
 {
-    public class DeleteModel : PageModel
+    public class ReturnModel : PageModel
     {
         private readonly Project_PRN.Models.ProjectPrn221Context _context;
 
-        public DeleteModel(Project_PRN.Models.ProjectPrn221Context context)
+        public ReturnModel(Project_PRN.Models.ProjectPrn221Context context)
         {
             _context = context;
         }
@@ -21,7 +18,8 @@ namespace Project_PRN.Pages.Asset
         public string Msg;
 
         [BindProperty]
-      public Assets Asset { get; set; } = default!;
+        public Assets Asset { get; set; } = default!;
+        public IList<Users> usersAssign { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -52,7 +50,7 @@ namespace Project_PRN.Pages.Asset
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 if (_context.AssetLocations != null)
                 {
@@ -77,6 +75,11 @@ namespace Project_PRN.Pages.Asset
                 if (_context.Users != null)
                 {
                     asset.Assignee = await _context.Users.FirstOrDefaultAsync(m => m.Id == asset.AssigneeId);
+                }
+
+                if (_context.Users != null)
+                {
+                    ViewData["UserAssign"] = new SelectList(_context.Users, "Id", "Username");
                 }
                 Asset = asset;
             }
@@ -139,31 +142,52 @@ namespace Project_PRN.Pages.Asset
 
             Asset = asset;
 
-            if (asset.StatusId == 3)
+            var employee = _context.Users.FirstOrDefault(u => u.Id == asset.AssigneeId);
+            if (employee == null)
             {
-                Msg = "Cannot remove asset In Use";
+                Msg = "Cannot find Employee";
                 ViewData["msg"] = Msg;
                 return Page();
-            }
 
-            if (_context.AssetTransactions == null)
-            {
-                Msg = "Cannot find context of Transactions";
-                ViewData["msg"] = Msg;
-                return Page();
             }
-
-            var transactions = await _context.AssetTransactions.Where(obj => obj.AssetId == asset.Id).ToListAsync();
-            foreach (Transactions trans in transactions)
-            {
-                _context.AssetTransactions.Remove(trans);
-                await _context.SaveChangesAsync();
-            }
-            Asset = asset;
-            _context.Assets.Remove(Asset);
+            asset.AssigneeId = null;
+            asset.StatusId = 4;
+            _context.Attach(asset).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+            var transaction = initTransaction(asset, employee);
+            if (transaction == null)
+            {
+                Msg = "Cannot init Transaction";
+                ViewData["msg"] = Msg;
+                return Page();
+            }
 
             return RedirectToPage("./Index");
+        }
+
+        public Transactions initTransaction(Assets asset, Users employee)
+        {
+            DateTimeOffset currentTime = new DateTimeOffset(DateTime.UtcNow);
+            var transaction = new Transactions();
+            transaction.Name = "Return Asset " + asset.Name + " from " + employee.Username;
+            transaction.AssetId = asset.Id;
+            transaction.TransactionDate = asset.AcquisitionDate;
+            if (asset.AcquisitionDate == null)
+            {
+                transaction.TransactionDate = DateTime.Now;
+            }
+            transaction.TransactionType = "asset";
+            transaction.TransactionCost = 0;
+            transaction.CreatedAt = (int)currentTime.ToUnixTimeSeconds();
+
+            if (!ModelState.IsValid || _context.AssetTransactions == null || transaction == null)
+            {
+                return null;
+            }
+
+            _context.AssetTransactions.Add(transaction);
+            _context.SaveChanges();
+            return transaction;
         }
     }
 }

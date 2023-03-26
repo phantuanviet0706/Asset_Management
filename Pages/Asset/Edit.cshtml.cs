@@ -18,12 +18,30 @@ namespace Project_PRN.Pages.Asset
         {
             _context = context;
         }
+        public Users userProfile { get; set; } = default!;
+        public string Msg;
 
         [BindProperty]
-        public AssetModel Asset { get; set; } = default!;
+        public Assets Asset { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            if (user.UserCode.ToLower() != "admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
             if (id == null || _context.Assets == null)
             {
                 return NotFound();
@@ -35,13 +53,10 @@ namespace Project_PRN.Pages.Asset
                 return NotFound();
             }
             Asset = asset;
-           ViewData["AssigneeId"] = new SelectList(_context.Users, "Id", "Id");
-           ViewData["CreateByUser"] = new SelectList(_context.Users, "Id", "Id");
-           ViewData["LocationId"] = new SelectList(_context.AssetLocations, "Id", "Id");
-           ViewData["StatusId"] = new SelectList(_context.AssetStatuses, "Id", "Id");
-           ViewData["TransactionId"] = new SelectList(_context.AssetTransactions, "Id", "Id");
-           ViewData["TypeId"] = new SelectList(_context.AssetTypes, "Id", "Id");
-           ViewData["VendorId"] = new SelectList(_context.AssetVendors, "Id", "Id");
+            ViewData["LocationId"] = new SelectList(_context.AssetLocations, "Id", "Name");
+            ViewData["StatusId"] = new SelectList(_context.AssetStatuses, "Id", "Name");
+            ViewData["TypeId"] = new SelectList(_context.AssetTypes, "Id", "Name");
+            ViewData["VendorId"] = new SelectList(_context.AssetVendors, "Id", "Name");
             return Page();
         }
 
@@ -49,10 +64,45 @@ namespace Project_PRN.Pages.Asset
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            ViewData["LocationId"] = new SelectList(_context.AssetLocations, "Id", "Name");
+            ViewData["StatusId"] = new SelectList(_context.AssetStatuses, "Id", "Name");
+            ViewData["TypeId"] = new SelectList(_context.AssetTypes, "Id", "Name");
+            ViewData["VendorId"] = new SelectList(_context.AssetVendors, "Id", "Name");
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            if (user.UserCode.ToLower() != "admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+            if (Asset.Name == null || Asset.Name.ToString().Trim() == "")
+            {
+                Msg = "Please input Asset Name";
+                ViewData["msg"] = Msg;
+                return Page();
+            }
+
+            if (Asset.LocationId == null)
+            {
+                Msg = "Please choose a Location";
+                ViewData["msg"] = Msg;
+                return Page();
+            }
+
 
             _context.Attach(Asset).State = EntityState.Modified;
 

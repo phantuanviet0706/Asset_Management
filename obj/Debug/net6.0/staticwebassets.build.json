@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7G9GcSqFEOrK5jn3qwsxM9HMrchqFfmKd0OgtS07GOA=",
+  "Hash": "lBQORzLoy+HmDPOr6Vw38zA2O7VMTn3qal+MoIPiHKI=",
   "Source": "Project_PRN",
   "BasePath": "_content/Project_PRN",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\FPT\\Project_PRN\\Project_PRN\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Project_PRN.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\Asset.css",
+      "SourceId": "Project_PRN",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\",
+      "BasePath": "_content/Project_PRN",
+      "RelativePath": "css/Asset.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Asset.css"
     },
     {
       "Identity": "E:\\FPT\\Project_PRN\\Project_PRN\\wwwroot\\css\\CRUD.css",

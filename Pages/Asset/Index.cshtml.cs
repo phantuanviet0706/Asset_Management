@@ -17,21 +17,55 @@ namespace Project_PRN.Pages.Asset
         {
             _context = context;
         }
+        public Users userProfile { get; set; } = default!;
 
-        public IList<AssetModel> Asset { get;set; } = default!;
+        public IList<Assets> Asset { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public const int INACTIVE_STATUS = 1;
+
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.Assets != null)
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
             {
-                Asset = await _context.Assets
-                .Include(a => a.Assignee)
-                .Include(a => a.CreateByUserNavigation)
-                .Include(a => a.Location)
-                .Include(a => a.Status)
-                .Include(a => a.Transaction)
-                .Include(a => a.Type)
-                .Include(a => a.Vendor).ToListAsync();
+                return RedirectToPage("/Login");
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
+            if (user.UserCode.ToLower() != "admin")
+            {
+                if (_context.Assets != null)
+                {
+                    Asset = await _context.Assets
+                    .Include(a => a.Assignee)
+                    .Include(a => a.CreateByUserNavigation)
+                    .Include(a => a.Location)
+                    .Include(a => a.Status)
+                    .Include(a => a.Type)
+                    .Include(a => a.Vendor)
+                    .Where(a => a.AssigneeId == userProfile.Id)
+                    .ToListAsync();
+                }
+                return Page();
+            }
+            else
+            {
+                if (_context.Assets != null)
+                {
+                    Asset = await _context.Assets
+                    .Include(a => a.Assignee)
+                    .Include(a => a.CreateByUserNavigation)
+                    .Include(a => a.Location)
+                    .Include(a => a.Status)
+                    .Include(a => a.Type)
+                    .Include(a => a.Vendor).ToListAsync();
+                }
+                return Page();
             }
         }
     }

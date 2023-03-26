@@ -34,10 +34,6 @@ namespace Project_PRN.Pages.AssetVendor
             {
                 return RedirectToPage("/Login");
             }
-            if (user.UserCode.ToLower() != "admin")
-            {
-                return RedirectToPage("/Login");
-            }
             userProfile = user;
 
             if (id == null || _context.AssetVendors == null)

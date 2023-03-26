@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Project_PRN.Models;
 
-public partial class AssetModel
+public partial class Assets
 {
     public int Id { get; set; }
 
@@ -29,9 +29,9 @@ public partial class AssetModel
 
     public string? Description { get; set; }
 
-    public int? TransactionId { get; set; }
-
     public int? CreateByUser { get; set; }
+
+    public virtual ICollection<Transactions> AssetTransactions { get; } = new List<Transactions>();
 
     public virtual Users? Assignee { get; set; }
 
@@ -40,8 +40,6 @@ public partial class AssetModel
     public virtual Locations? Location { get; set; }
 
     public virtual Statuses? Status { get; set; }
-
-    public virtual Transactions? Transaction { get; set; }
 
     public virtual Types? Type { get; set; }
 

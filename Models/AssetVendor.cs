@@ -21,5 +21,5 @@ public partial class Vendors
 
     public string? Description { get; set; }
 
-    public virtual ICollection<AssetModel> Assets { get; } = new List<AssetModel>();
+    public virtual ICollection<Assets> Assets { get; } = new List<Assets>();
 }

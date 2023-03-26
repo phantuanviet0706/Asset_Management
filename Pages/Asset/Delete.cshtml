@@ -1,92 +1,105 @@
 ﻿@page
 @model Project_PRN.Pages.Asset.DeleteModel
+@{
+    var profile = Model.userProfile;
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/Settings.css" />
+<link rel="stylesheet" href="~/css/CRUD.css" />
 
-<h3>Are you sure you want to delete this?</h3>
+<header class="sticky-header">
+    <div id="navbar">
+        <a href="/Asset">Home</a>
+        <a href="">Transactions</a>
+        <a href="/Setting">Settings</a>
+        <div id="user-info" style="float: right;">
+            <a asp-page="/User/Details" asp-route-id="@profile.Id">
+                @Html.DisplayFor(model => model.userProfile.Email)
+            </a>
+        </div>
+    </div>
+</header>
+
 <div>
-    <h4>Asset</h4>
+    <h3 class="create-object-text">Are you sure you want to delete this?</h3>
+    <div class="text-danger error-message-text">@ViewData["msg"]</div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+    <dl class="row create-form-asset">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Asset.Name)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Asset.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Asset.Code)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Asset.Code)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Asset.AcquisitionDate)
+        <dt class="col-sm-3">
+            Active Date
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Asset.AcquisitionDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Asset.DisposalDate)
+        <dt class="col-sm-3">
+            Dispose Date
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Asset.DisposalDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Asset.AssignDate)
+        <dt class="col-sm-3">
+            Assign Date
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Asset.AssignDate)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Asset.Description)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Asset.Description)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Asset.Assignee)
+        <dt class="col-sm-3">
+            Assignee
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Asset.Assignee.Id)
+        <dd class="col-sm-9">
+            @(Model.Asset.Assignee == null ? "---" : Model.Asset.Assignee.Username)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Asset.CreateByUserNavigation)
+        <dt class="col-sm-3">
+            Created By
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Asset.CreateByUserNavigation.Id)
+        <dd class="col-sm-9">
+            @(Model.Asset.CreateByUserNavigation == null ? "---" : Model.Asset.CreateByUserNavigation.Username)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Asset.Location)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Asset.Location.Id)
+        <dd class="col-sm-9">
+            @(Model.Asset.Location == null ? "---" : Model.Asset.Location.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Asset.Status)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Asset.Status.Id)
+        <dd class="col-sm-9">
+            @(Model.Asset.Status == null ? "---" : Model.Asset.Status.Name)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Asset.Transaction)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Asset.Transaction.Id)
-        </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Asset.Type)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Asset.Type.Id)
+        <dd class="col-sm-9">
+            @(Model.Asset.Type == null ? "---" : Model.Asset.Type.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Asset.Vendor)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Asset.Vendor.Id)
+        <dd class="col-sm-9">
+            @(Model.Asset.Vendor == null ? "---" : Model.Asset.Vendor.Name)
         </dd>
     </dl>
     
-    <form method="post">
+    <form method="post" class="user-action">
         <input type="hidden" asp-for="Asset.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>

@@ -1,5 +1,5 @@
 ﻿@page
-@model Project_PRN.Pages.Setting.VendorsModel
+@model Project_PRN.Pages.Setting.UsersModel
 @{
     var profile = Model.userProfile;
     Layout = "_Layout";
@@ -29,34 +29,32 @@
     </div>
 </div>
 
-@if(Model.vendors.Count == 0)
+
+@if (Model.User.Count == 0)
 {
     <div class="empty-state right-tab">
-        <div>No vendor found. Please <a href="/AssetVendor/Create">Create</a> a new one</div>
+        <div>No type found. Please <a href="/AssetType/Create">Create</a> a new one</div>
     </div>
 
-}else
+}
+else
 {
     <div class="right-tab">
-        <a href="/AssetVendor/Create" class="create-new-btn">Create new Vendor</a>
-
+        <a href="/AssetType/Create" class="create-new-btn">Create new Type</a>
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.vendors[0].Id)
+                        #
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.vendors[0].Name)
+                        @Html.DisplayNameFor(model => model.User[0].Username)
                     </th>
-                    <th style="width: 150px;">
-                        Contact Name
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].UserCode)
                     </th>
-                    <th style="width: 150px;">
-                        @Html.DisplayNameFor(model => model.vendors[0].Phone)
-                    </th>
-                    <th style="width: 200px;">
-                        @Html.DisplayNameFor(model => model.vendors[0].Email)
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Email)
                     </th>
                     <th>
                         Edit
@@ -71,32 +69,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.vendors)
+                @foreach (var item in Model.User)
                 {
                     <tr>
                         <td>
                             @(i++)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Name)
+                            @Html.DisplayFor(modelItem => item.Username)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ContactName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Phone)
+                            @Html.DisplayFor(modelItem => item.UserCode)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
                         <td>
-                            <a asp-page="/AssetVendor/Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-page="/User/Edit" asp-route-id="@item.Id">Edit</a>
                         </td>
                         <td>
-                            <a asp-page="/AssetVendor/Details" asp-route-id="@item.Id">Details</a>
+                            <a asp-page="/User/Details" asp-route-id="@item.Id">Details</a>
                         </td>
                         <td>
-                            <a asp-page="/AssetVendor/Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-page="/User/Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>
                 }
@@ -104,4 +99,3 @@
         </table>
     </div>
 }
-

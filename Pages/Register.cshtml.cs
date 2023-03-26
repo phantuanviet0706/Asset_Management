@@ -96,7 +96,7 @@ namespace Project_PRN.Pages
             }
 
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Login");
         }
     }
 }

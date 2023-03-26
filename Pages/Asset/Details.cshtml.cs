@@ -17,11 +17,27 @@ namespace Project_PRN.Pages.Asset
         {
             _context = context;
         }
+        public Users userProfile { get; set; } = default!;
+        public string Msg;
 
-      public AssetModel Asset { get; set; } = default!; 
+        public Assets Asset { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
+
             if (id == null || _context.Assets == null)
             {
                 return NotFound();
@@ -34,6 +50,26 @@ namespace Project_PRN.Pages.Asset
             }
             else 
             {
+                if (_context.AssetLocations != null)
+                {
+                    asset.Location = await _context.AssetLocations.FirstOrDefaultAsync(m => m.Id == asset.LocationId);
+                }
+
+                if (_context.AssetStatuses != null)
+                {
+                    asset.Status = await _context.AssetStatuses.FirstOrDefaultAsync(m => m.Id == asset.StatusId);
+                }
+
+                if (_context.AssetTypes != null)
+                {
+                    asset.Type = await _context.AssetTypes.FirstOrDefaultAsync(m => m.Id == asset.TypeId);
+                }
+
+                if (_context.AssetVendors != null)
+                {
+                    asset.Vendor = await _context.AssetVendors.FirstOrDefaultAsync(m => m.Id == asset.VendorId);
+                }
+
                 Asset = asset;
             }
             return Page();

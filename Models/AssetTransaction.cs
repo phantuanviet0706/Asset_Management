@@ -9,6 +9,8 @@ public partial class Transactions
 
     public string? Name { get; set; }
 
+    public int? AssetId { get; set; }
+
     public DateTime? TransactionDate { get; set; }
 
     public string? TransactionType { get; set; }
@@ -17,5 +19,5 @@ public partial class Transactions
 
     public int? CreatedAt { get; set; }
 
-    public virtual ICollection<AssetModel> Assets { get; } = new List<AssetModel>();
+    public virtual Assets? Asset { get; set; }
 }

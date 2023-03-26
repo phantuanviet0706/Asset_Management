@@ -35,10 +35,6 @@ namespace Project_PRN.Pages.AssetLocation
             {
                 return RedirectToPage("/Login");
             }
-            if (user.UserCode.ToLower() != "admin")
-            {
-                return RedirectToPage("/Login");
-            }
             userProfile = user;
             if (id == null || _context.AssetLocations == null)
             {

@@ -21,7 +21,7 @@ public partial class Users
 
     public string? UserIdNumber { get; set; }
 
-    public virtual ICollection<AssetModel> AssetAssignees { get; } = new List<AssetModel>();
+    public virtual ICollection<Assets> AssetAssignees { get; } = new List<Assets>();
 
-    public virtual ICollection<AssetModel> AssetCreateByUserNavigations { get; } = new List<AssetModel>();
+    public virtual ICollection<Assets> AssetCreateByUserNavigations { get; } = new List<Assets>();
 }

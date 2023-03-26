@@ -19,7 +19,7 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddMvc().AddRazorPagesOptions(options =>
 {
-    options.Conventions.AddPageRoute("/Setting/Index", "");
+    options.Conventions.AddPageRoute("/Asset/Index", "");
 });
 
 var app = builder.Build();

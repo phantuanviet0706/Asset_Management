@@ -1,87 +1,78 @@
 ﻿@page
 @model Project_PRN.Pages.Asset.EditModel
+@{
+    var profile = Model.userProfile;
+    Layout = "_Layout";
+    var i = 1;
+}
+    <link rel="stylesheet" href="~/css/Settings.css" />
+    <link rel="stylesheet" href="~/css/CRUD.css" />
 
-<h4>Asset</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <header class="sticky-header">
+        <div id="navbar">
+            <a href="/Asset">Home</a>
+            <a href="/AssetTransaction">Transactions</a>
+            <a href="/Setting">Settings</a>
+            <div id="user-info" style="float: right;">
+            <a asp-page="/User/Details" asp-route-id="@profile.Id">
+                @Html.DisplayFor(model => model.userProfile.Email)
+                </a>
+            </div>
+        </div>
+    </header>
+<div class="row create-form-asset">
+    <div class="col-md-12 row">
+        <h3 class="create-object-text">Update Asset</h3>
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="text-danger error-message-text">@ViewData["msg"]</div>
             <input type="hidden" asp-for="Asset.Id" />
-            <div class="form-group">
-                <label asp-for="Asset.Name" class="control-label"></label>
-                <input asp-for="Asset.Name" class="form-control" />
-                <span asp-validation-for="Asset.Name" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Asset.Name" class="control-label"></label>
+                    <input asp-for="Asset.Name" class="form-control" />
+                    <span asp-validation-for="Asset.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Asset.Code" class="control-label"></label>
+                    <input asp-for="Asset.Code" class="form-control" />
+                    <span asp-validation-for="Asset.Code" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Asset.Code" class="control-label"></label>
-                <input asp-for="Asset.Code" class="form-control" />
-                <span asp-validation-for="Asset.Code" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Asset.LocationId" class="control-label"></label>
+                    <select asp-for="Asset.LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>
+                    <span asp-validation-for="Asset.LocationId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Asset.TypeId" class="control-label"></label>
+                    <select asp-for="Asset.TypeId" class="form-control" asp-items="ViewBag.TypeId"></select>
+                    <span asp-validation-for="Asset.TypeId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Asset.VendorId" class="control-label"></label>
+                    <select asp-for="Asset.VendorId" class="form-control" asp-items="ViewBag.VendorId"></select>
+                    <span asp-validation-for="Asset.VendorId" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Asset.TypeId" class="control-label"></label>
-                <select asp-for="Asset.TypeId" class="form-control" asp-items="ViewBag.TypeId"></select>
-                <span asp-validation-for="Asset.TypeId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asset.LocationId" class="control-label"></label>
-                <select asp-for="Asset.LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>
-                <span asp-validation-for="Asset.LocationId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asset.StatusId" class="control-label"></label>
-                <select asp-for="Asset.StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
-                <span asp-validation-for="Asset.StatusId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asset.AssigneeId" class="control-label"></label>
-                <select asp-for="Asset.AssigneeId" class="form-control" asp-items="ViewBag.AssigneeId"></select>
-                <span asp-validation-for="Asset.AssigneeId" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="Asset.AcquisitionDate" class="control-label"></label>
                 <input asp-for="Asset.AcquisitionDate" class="form-control" />
                 <span asp-validation-for="Asset.AcquisitionDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Asset.DisposalDate" class="control-label"></label>
-                <input asp-for="Asset.DisposalDate" class="form-control" />
-                <span asp-validation-for="Asset.DisposalDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asset.AssignDate" class="control-label"></label>
-                <input asp-for="Asset.AssignDate" class="form-control" />
-                <span asp-validation-for="Asset.AssignDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asset.VendorId" class="control-label"></label>
-                <select asp-for="Asset.VendorId" class="form-control" asp-items="ViewBag.VendorId"></select>
-                <span asp-validation-for="Asset.VendorId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Asset.Description" class="control-label"></label>
-                <input asp-for="Asset.Description" class="form-control" />
+                <textarea asp-for="Asset.Description" class="form-control" ></textarea>
                 <span asp-validation-for="Asset.Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Asset.TransactionId" class="control-label"></label>
-                <select asp-for="Asset.TransactionId" class="form-control" asp-items="ViewBag.TransactionId"></select>
-                <span asp-validation-for="Asset.TransactionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asset.CreateByUser" class="control-label"></label>
-                <select asp-for="Asset.CreateByUser" class="form-control" asp-items="ViewBag.CreateByUser"></select>
-                <span asp-validation-for="Asset.CreateByUser" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-group btn-action">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a href="/Asset/Index" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

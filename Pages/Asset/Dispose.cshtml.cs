@@ -1,7 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +5,11 @@ using Project_PRN.Models;
 
 namespace Project_PRN.Pages.Asset
 {
-    public class DeleteModel : PageModel
+    public class DisposeModel : PageModel
     {
         private readonly Project_PRN.Models.ProjectPrn221Context _context;
 
-        public DeleteModel(Project_PRN.Models.ProjectPrn221Context context)
+        public DisposeModel(Project_PRN.Models.ProjectPrn221Context context)
         {
             _context = context;
         }
@@ -21,7 +17,7 @@ namespace Project_PRN.Pages.Asset
         public string Msg;
 
         [BindProperty]
-      public Assets Asset { get; set; } = default!;
+        public Assets Asset { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -52,7 +48,7 @@ namespace Project_PRN.Pages.Asset
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 if (_context.AssetLocations != null)
                 {
@@ -139,31 +135,55 @@ namespace Project_PRN.Pages.Asset
 
             Asset = asset;
 
+
             if (asset.StatusId == 3)
             {
-                Msg = "Cannot remove asset In Use";
+                Msg = "Cannot dispose asset In Use";
                 ViewData["msg"] = Msg;
                 return Page();
             }
 
-            if (_context.AssetTransactions == null)
-            {
-                Msg = "Cannot find context of Transactions";
-                ViewData["msg"] = Msg;
-                return Page();
-            }
-
-            var transactions = await _context.AssetTransactions.Where(obj => obj.AssetId == asset.Id).ToListAsync();
-            foreach (Transactions trans in transactions)
-            {
-                _context.AssetTransactions.Remove(trans);
-                await _context.SaveChangesAsync();
-            }
-            Asset = asset;
-            _context.Assets.Remove(Asset);
+            asset.DisposalDate = DateTime.Now;
+            asset.StatusId = 1;
+            _context.Attach(asset).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+
+            var transaction = initTransaction(asset);
+            if (transaction == null)
+            {
+                Msg = "Cannot init Transaction";
+                ViewData["msg"] = Msg;
+                return Page();
+            }
+
 
             return RedirectToPage("./Index");
         }
+
+        public Transactions initTransaction(Assets asset)
+        {
+            DateTimeOffset currentTime = new DateTimeOffset(DateTime.UtcNow);
+            var transaction = new Transactions();
+            transaction.Name = "Dispose Asset " + asset.Name;
+            transaction.AssetId = asset.Id;
+            transaction.TransactionDate = asset.AcquisitionDate;
+            if (asset.AcquisitionDate == null)
+            {
+                transaction.TransactionDate = DateTime.Now;
+            }
+            transaction.TransactionType = "asset";
+            transaction.TransactionCost = 0;
+            transaction.CreatedAt = (int)currentTime.ToUnixTimeSeconds();
+
+            if (!ModelState.IsValid || _context.AssetTransactions == null || transaction == null)
+            {
+                return null;
+            }
+
+            _context.AssetTransactions.Add(transaction);
+            _context.SaveChanges();
+            return transaction;
+        }
+
     }
 }
