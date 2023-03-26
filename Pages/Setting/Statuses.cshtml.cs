@@ -29,6 +29,10 @@ namespace Project_PRN.Pages.Setting
             {
                 return RedirectToPage("/Login");
             }
+            if (user.UserCode.ToLower() != "admin")
+            {
+                return RedirectToPage("/Login");
+            }
             userProfile = user;
 
             if (_context.AssetStatuses != null)

@@ -3,6 +3,7 @@
 @{
     var profile = Model.userProfile;
     Layout = "_Layout";
+    var i = 1;
 }
 <link rel="stylesheet" href="~/css/Settings.css" />
 
@@ -82,7 +83,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Id)
+                            @(i++)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)

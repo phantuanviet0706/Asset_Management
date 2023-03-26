@@ -1,10 +1,29 @@
 ﻿@page
 @model Project_PRN.Pages.AssetTypes.DetailsModel
+@{
+    var profile = Model.userProfile;
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/Settings.css" />
+<link rel="stylesheet" href="~/css/CRUD.css" />
+
+<header class="sticky-header">
+    <div id="navbar">
+        <a href="/Asset">Home</a>
+        <a href="">Transactions</a>
+        <a href="/Setting">Settings</a>
+        <div id="user-info" style="float: right;">
+            <a asp-page="/User/Details" asp-route-id="@profile.Id">
+                @Html.DisplayFor(model => model.userProfile.Email)
+            </a>
+        </div>
+    </div>
+</header>
 
 <div>
-    <h4>AssetType</h4>
+    <h3 class="create-object-text">Asset Type</h3>
     <hr />
-    <dl class="row">
+    <dl class="row create-form-asset">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.AssetType.Name)
         </dt>
@@ -19,7 +38,7 @@
         </dd>
     </dl>
 </div>
-<div>
+<div class="user-action">
     <a asp-page="./Edit" asp-route-id="@Model.AssetType?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="/Setting/Types">Back to List</a>
 </div>

@@ -1,12 +1,31 @@
 ﻿@page
 @model Project_PRN.Pages.AssetTypes.EditModel
+@{
+    var profile = Model.userProfile;
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/Settings.css" />
+<link rel="stylesheet" href="~/css/CRUD.css" />
 
-<h4>AssetType</h4>
-<hr />
-<div class="row">
+<header class="sticky-header">
+    <div id="navbar">
+        <a href="/Asset">Home</a>
+        <a href="">Transactions</a>
+        <a href="/Setting">Settings</a>
+        <div id="user-info" style="float: right;">
+            <a asp-page="/User/Details" asp-route-id="@profile.Id">
+                @Html.DisplayFor(model => model.userProfile.Email)
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="row create-form-asset">
     <div class="col-md-4">
+        <h3 class="create-object-text">Update Type Info</h3>
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="text-danger error-message-text">@ViewData["msg"]</div>
             <input type="hidden" asp-for="AssetType.Id" />
             <div class="form-group">
                 <label asp-for="AssetType.Name" class="control-label"></label>
@@ -18,15 +37,13 @@
                 <input asp-for="AssetType.Code" class="form-control" />
                 <span asp-validation-for="AssetType.Code" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-group btn-action">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a href="/Setting/Types" class="btn btn-secondary">Cancel</a>
+
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

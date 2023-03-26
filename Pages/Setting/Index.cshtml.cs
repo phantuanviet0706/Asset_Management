@@ -23,12 +23,14 @@ namespace Project_PRN.Pages.Setting
             string username = HttpContext.Session.GetString("username");
             if (username == null || _context.Users == null)
             {
-                //return RedirectToPage("/Login");
-                username = "admin";
-                HttpContext.Session.SetString("username", username);
+                return RedirectToPage("/Login");
             }
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
             if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            if (user.UserCode.ToLower() != "admin")
             {
                 return RedirectToPage("/Login");
             }

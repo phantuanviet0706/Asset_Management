@@ -17,12 +17,30 @@ namespace Project_PRN.Pages.AssetTypes
         {
             _context = context;
         }
+        public Users userProfile { get; set; } = default!;
+        public string Msg;
 
         [BindProperty]
       public Types AssetType { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            if (user.UserCode.ToLower() != "admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
             if (id == null || _context.AssetTypes == null)
             {
                 return NotFound();
@@ -43,6 +61,22 @@ namespace Project_PRN.Pages.AssetTypes
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            if (user.UserCode != "admin")
+            {
+                return RedirectToPage("/Login");
+
+            }
+            userProfile = user;
             if (id == null || _context.AssetTypes == null)
             {
                 return NotFound();
@@ -56,7 +90,7 @@ namespace Project_PRN.Pages.AssetTypes
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Setting/Types");
         }
     }
 }
