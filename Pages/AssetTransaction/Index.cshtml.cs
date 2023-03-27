@@ -17,15 +17,33 @@ namespace Project_PRN.Pages.AssetTransaction
         {
             _context = context;
         }
+        public Users userProfile { get; set; } = default!;
 
         public IList<Transactions> AssetTransaction { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null || _context.Users == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            if (user.UserCode.ToLower() != "admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            userProfile = user;
+
             if (_context.AssetTransactions != null)
             {
                 AssetTransaction = await _context.AssetTransactions.ToListAsync();
             }
+            return Page();
         }
     }
 }

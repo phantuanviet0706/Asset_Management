@@ -58,7 +58,7 @@ namespace Project_PRN.Pages.AssetTypes
             {
                 return RedirectToPage("/Login");
             }
-            if (user.UserCode != "admin")
+            if (user.UserCode.ToLower() != "admin")
             {
                 return RedirectToPage("/Login");
 

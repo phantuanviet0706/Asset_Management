@@ -1,27 +1,34 @@
 ﻿@page
 @model Project_PRN.Pages.User.DetailsModel
+@{
+    var profile = Model.userProfile;
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/Settings.css" />
+<link rel="stylesheet" href="~/css/CRUD.css" />
+
+<header class="sticky-header">
+    <div id="navbar">
+        <a href="/Asset">Home</a>
+        <a href="">Transactions</a>
+        <a href="/Setting">Settings</a>
+        <div id="user-info" style="float: right;">
+            <a asp-page="/User/Details" asp-route-id="@profile.Id">
+                @Html.DisplayFor(model => model.userProfile.Email)
+            </a>
+        </div>
+    </div>
+</header>
 
 <div>
-    <h4>User</h4>
+    <h3 class="create-object-text">Users</h3>
     <hr />
-    <dl class="row">
+    <dl class="row create-form-asset">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.User.Username)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.Username)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Password)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.UserCode)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.UserCode)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.User.Email)
@@ -49,7 +56,13 @@
         </dd>
     </dl>
 </div>
-<div>
+<div class="user-action">
     <a asp-page="./Edit" asp-route-id="@Model.User?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    @{
+        if (profile.UserCode.ToLower().Trim() == "admin")
+        {
+    <a asp-page="/Setting/Users">Back to List</a>
+            
+        }
+    }
 </div>

@@ -1,54 +1,69 @@
 ﻿@page
 @model Project_PRN.Pages.AssetTransaction.IndexModel
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AssetTransaction[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssetTransaction[0].TransactionDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssetTransaction[0].TransactionType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssetTransaction[0].TransactionCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssetTransaction[0].CreatedAt)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.AssetTransaction) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransactionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransactionType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransactionCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@{
+    var profile = Model.userProfile;
+    Layout = "_Layout";
+    var i = 1;
 }
-    </tbody>
-</table>
+<link rel="stylesheet" href="~/css/Settings.css" />
+
+<header class="sticky-header">
+    <div id="navbar">
+        <a href="/Asset">Home</a>
+        <a href="/AssetTransaction">Transactions</a>
+        <a href="/Setting">Settings</a>
+        <div id="user-info" style="float: right;">
+            <a asp-page="/User/Details" asp-route-id="@profile.Id">
+                @Html.DisplayFor(model => model.userProfile.Email)
+            </a>
+        </div>
+    </div>
+</header>
+<div class="left-tab" style="height: 100%;">
+    <div class="tab" style="height: 100%;">
+        <button class="tablinks" onclick="location.href='/Setting/Index'" id="defaultOpen" href="/Login">Locations</button>
+        <button class="tablinks" onclick="location.href='/Setting/Statuses'">Statuses</button>
+        <button class="tablinks" onclick="location.href='/Setting/Vendors'">Vendors</button>
+        <button class="tablinks" onclick="location.href='/Setting/Types'">Types</button>
+        <button class="tablinks" onclick="location.href='/Setting/Users'">Users</button>
+    </div>
+</div>
+
+<div class="right-tab">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AssetTransaction[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AssetTransaction[0].TransactionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AssetTransaction[0].TransactionType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AssetTransaction[0].TransactionCost)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.AssetTransaction) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionCost)
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>
